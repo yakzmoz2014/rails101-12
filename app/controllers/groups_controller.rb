@@ -30,7 +30,13 @@ class GroupsController < ApplicationController
       redirect_to groups_path, notice: "Update success"
     else
       render :edit
-    end 
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path, alert: "Group deleted"
   end
 
   private
